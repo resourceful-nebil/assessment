@@ -1,10 +1,12 @@
+import 'package:evaluation_app/features/domain/entity/grocery.dart';
 import 'package:evaluation_app/features/presentation/pages/home_page.dart';
 import 'package:evaluation_app/features/presentation/widgets/detail_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailsPage extends StatelessWidget {
-  const DetailsPage({super.key});
+  final Grocery groceryObject;
+  const DetailsPage({super.key, required this.groceryObject});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class DetailsPage extends StatelessWidget {
           ),
           child: ListView(
             children: [
-              DetailImage(),
+              DetailImage(imageUrl: groceryObject.imageUrl),
               Container(
                 child: Column(
                   children: <Widget>[
@@ -30,7 +32,7 @@ class DetailsPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            'Chicken Burger',
+                            groceryObject.title,
                             style: GoogleFonts.roboto(
                               textStyle: const TextStyle(
                                 fontWeight: FontWeight.w600,
@@ -50,7 +52,7 @@ class DetailsPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            '\$ 12.99',
+                            groceryObject.price.toString(),
                             style: GoogleFonts.roboto(
                               textStyle: const TextStyle(
                                 fontWeight: FontWeight.w400,
@@ -62,7 +64,8 @@ class DetailsPage extends StatelessWidget {
                           ),
                           SizedBox(width: 3),
                           Text(
-                            '\$ 12.99',
+                            (groceryObject.price - groceryObject.discount)
+                                .toString(),
                             style: GoogleFonts.roboto(
                               textStyle: const TextStyle(
                                 fontWeight: FontWeight.w500,
@@ -90,7 +93,7 @@ class DetailsPage extends StatelessWidget {
                               ),
                               SizedBox(width: 4),
                               Text(
-                                '4.5',
+                                groceryObject.rating.toString(),
                                 style: GoogleFonts.roboto(
                                   textStyle: const TextStyle(
                                     fontWeight: FontWeight.w400,
@@ -119,7 +122,7 @@ class DetailsPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 18),
                       child: Text(
-                        'lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                        groceryObject.description,
                         style: GoogleFonts.poppins(
                           textStyle: const TextStyle(
                             fontWeight: FontWeight.w300,
@@ -166,24 +169,15 @@ class DetailsPage extends StatelessWidget {
                     //options
                     //1
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
                         children: [
-                          Text(
-                            'Add Cheese',
-                            style: GoogleFonts.roboto(
-                              textStyle: const TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                                color: Color.fromRGBO(102, 102, 102, 1),
-                              ),
-                            ),
-                          ),
+                          //
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                '+ 1.99',
+                                groceryObject.options[0].name,
                                 style: GoogleFonts.roboto(
                                   textStyle: const TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -192,80 +186,97 @@ class DetailsPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 3),
-                              Checkbox(
-                                  value: false, onChanged: (bool? newValue) {})
+                              Row(
+                                children: [
+                                  Text(
+                                    groceryObject.options[0].price.toString(),
+                                    style: GoogleFonts.roboto(
+                                      textStyle: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                        color: Color.fromRGBO(102, 102, 102, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 3),
+                                  Checkbox(
+                                      value: false,
+                                      onChanged: (bool? newValue) {})
+                                ],
+                              )
                             ],
-                          )
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                groceryObject.options[1].name,
+                                style: GoogleFonts.roboto(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    color: Color.fromRGBO(102, 102, 102, 1),
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    groceryObject.options[1].price.toString(),
+                                    style: GoogleFonts.roboto(
+                                      textStyle: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                        color: Color.fromRGBO(102, 102, 102, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 3),
+                                  Checkbox(
+                                      value: false,
+                                      onChanged: (bool? newValue) {})
+                                ],
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                groceryObject.options[2].name,
+                                style: GoogleFonts.roboto(
+                                  textStyle: const TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 14,
+                                    color: Color.fromRGBO(102, 102, 102, 1),
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    groceryObject.options[2].price.toString(),
+                                    style: GoogleFonts.roboto(
+                                      textStyle: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                        color: Color.fromRGBO(102, 102, 102, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 3),
+                                  Checkbox(
+                                      value: false,
+                                      onChanged: (bool? newValue) {})
+                                ],
+                              )
+                            ],
+                          ),
                         ],
                       ),
                     ),
                     //2
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Add Cheese',
-                          style: GoogleFonts.roboto(
-                            textStyle: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              color: Color.fromRGBO(102, 102, 102, 1),
-                            ),
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              '+ 1.99',
-                              style: GoogleFonts.roboto(
-                                textStyle: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                  color: Color.fromRGBO(102, 102, 102, 1),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 3),
-                            Checkbox(
-                                value: false, onChanged: (bool? newValue) {})
-                          ],
-                        )
-                      ],
-                    ),
                     //3
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Add Cheese',
-                          style: GoogleFonts.roboto(
-                            textStyle: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              color: Color.fromRGBO(102, 102, 102, 1),
-                            ),
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              '+ 1.99',
-                              style: GoogleFonts.roboto(
-                                textStyle: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                  color: Color.fromRGBO(102, 102, 102, 1),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 3),
-                            Checkbox(
-                                value: false, onChanged: (bool? newValue) {})
-                          ],
-                        )
-                      ],
-                    ),
                   ],
                 ),
               ),
@@ -284,12 +295,9 @@ class DetailsPage extends StatelessWidget {
                     Container(
                       height: 20,
                       width: 20,
-                      
                       decoration: BoxDecoration(
-                        
                         color: Colors.white,
                         shape: BoxShape.circle,
-                        
                       ),
                       child: Icon(
                         Icons.add,

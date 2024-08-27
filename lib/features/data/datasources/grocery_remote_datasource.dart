@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:evaluation_app/core/errors/exception.dart';
 import 'package:evaluation_app/core/errors/failure.dart';
+import 'package:evaluation_app/features/data/datasources/grocery_local_datasource.dart';
 import 'package:evaluation_app/features/data/model/grocery_model.dart';
 import 'package:http/http.dart' as http;
-
 
 abstract class GroceryRemoteDataSource {
   Future<GroceryModel> getGrocery(String id);
@@ -13,14 +13,18 @@ abstract class GroceryRemoteDataSource {
 
 class GroceryRemoteDataSourceImpl implements GroceryRemoteDataSource {
   final http.Client client;
-  final baseUrl = 'https://g5-flutter-learning-path-be.onrender.com/api/v1/groceries';
+  final GroceryLocalDataSource localDataSource;
+  final baseUrl =
+      'https://g5-flutter-learning-path-be.onrender.com/api/v1/groceries';
 
-  GroceryRemoteDataSourceImpl({required this.client, required Object localDataSource});
+  GroceryRemoteDataSourceImpl(
+      {required this.client, required this.localDataSource});
 
   @override
   Future<GroceryModel> getGrocery(String id) async {
     final response = await client.get(
-      Uri.parse('https://g5-flutter-learning-path-be.onrender.com/api/v1/groceries/$id'),
+      Uri.parse(
+          'https://g5-flutter-learning-path-be.onrender.com/api/v1/groceries/$id'),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -36,9 +40,8 @@ class GroceryRemoteDataSourceImpl implements GroceryRemoteDataSource {
   Future<Either<Failure, List<GroceryModel>>> getAllGroceries() async {
     try {
       final url = Uri.parse(baseUrl);
-      final response = await client.get(url,
-          headers: {'Content-Type': 'application/json'}
-      );
+      final response =
+          await client.get(url, headers: {'Content-Type': 'application/json'});
       print('${response.statusCode} suuuuuuuuu');
       if (response.statusCode == 200) {
         final responseData = json.decode(response.body);
