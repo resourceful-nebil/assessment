@@ -4,14 +4,15 @@ A new Flutter project.
 
 ## Getting Started
 
-![photo_2024-08-27_21-58-28](https://github.com/user-attachments/assets/c93256e5-c5f4-4a5c-80eb-1d23a47890a4)
+![photo_2024-08-27_21-58-28](https://github.com/user-attachments/assets/3eb1307e-e8dd-4284-9931-66890d8bfff9)
 
-![Uploading photo_2024-08-27_21-58-35.jpg…]()
+![photo_2024-08-27_21-58-35](https://github.com/user-attachments/assets/2f70b675-f1dc-4cee-b5bd-f1ab844fccef)
 
 
-__![photo_2024-08-27_18-47-12](https://github.com/user-attachments/assets/04d77711-ae30-43e7-86ee-1d89654b21db)
 
-__![photo_2024-08-27_18-47-03](https://github.com/user-attachments/assets/25702582-67d5-46b5-afda-8dd5638d3eec)
+<__!<[photo_2024-08-27_18-47-12](https://github.com/user-attachments/assets/04d77711-ae30-43e7-86ee-1d89654b21db)>
+
+__!<[photo_2024-08-27_18-47-03](https://github.com/user-attachments/assets/25702582-67d5-46b5-afda-8dd5638d3eec)>
 
 ![photo_2024-08-27_18-47-03](https://github.com/user-attachments/assets/19876f36-5c52-43f9-b993-371b7e922523)
 
