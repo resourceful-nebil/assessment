@@ -1,30 +1,74 @@
-# evaluation_app
+# Burger Order App
 
-A new Flutter project.
+A **Flutter** application that helps users easily order burgers. The app is designed with **Clean Architecture** principles, utilizing the **BLoC** pattern and **GetIt** for dependency injection to ensure maintainability, scalability, and testability.
+
+## Features
+
+- Browse a variety of burgers
+- Customize orders with different ingredients and preferences
+- Add items to the cart and place orders
+- Intuitive and easy-to-use interface
+
+## Technologies Used
+
+- **Flutter** for cross-platform mobile app development
+- **Dart** programming language
+- **BLoC (Business Logic Component)** for state management
+- **GetIt** for dependency injection
+- **Clean Architecture** for structured, maintainable code
+
+## Mockup
+![burger](https://github.com/user-attachments/assets/138b3208-c4a0-45d3-84c1-0b5d1bf97eb9)
+
 
 ## Getting Started
 
-![photo_2024-08-27_21-58-28](https://github.com/user-attachments/assets/3eb1307e-e8dd-4284-9931-66890d8bfff9)
+### Prerequisites
 
-![photo_2024-08-27_21-58-35](https://github.com/user-attachments/assets/2f70b675-f1dc-4cee-b5bd-f1ab844fccef)
+- Ensure you have **Flutter** installed on your machine. You can download it from the official [Flutter website](https://flutter.dev/docs/get-started/install).
+- Make sure you have an emulator or physical device set up for testing the application.
 
+### Installation
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/resourceful-nebil/assessment.git
+Navigate to the project directory:
+bash
+Always show details
 
-<__!<[photo_2024-08-27_18-47-12](https://github.com/user-attachments/assets/04d77711-ae30-43e7-86ee-1d89654b21db)>
+Copy code
+cd assessment
+Install dependencies:
+bash
+Always show details
 
-__!<[photo_2024-08-27_18-47-03](https://github.com/user-attachments/assets/25702582-67d5-46b5-afda-8dd5638d3eec)>
+Copy code
+flutter pub get
+Run the app on an emulator or physical device:
+bash
+Always show details
 
-![photo_2024-08-27_19-07-30](https://github.com/user-attachments/assets/21e9382f-8a50-4229-abd3-34978746c659)
-!<<[photo_2024-08-27_18-47-03](https://github.com/user-attachments/assets/19876f36-5c52-43f9-b993-371b7e922523)
+Copy code
+flutter run
+Usage
+Once the app is running, you can:
 
+Browse the available burger options.
+Customize your order by selecting ingredients.
+Add items to your cart.
+Proceed to checkout and place your order.
+Project Structure
+This project follows Clean Architecture, separating concerns into layers for better code organization and maintainability:
 
-This project is a starting point for a Flutter application.
+Presentation Layer: UI components and state management using BLoC.
+Domain Layer: Business logic, entities, and use cases.
+Data Layer: Data sources, repositories, and models.
+Contributing
+Contributions are welcome! If you want to contribute to the project, follow these steps:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes and commit (git commit -m 'Add new feature').
+Push to the branch (git push origin feature-branch).
+Open a Pull Request.
